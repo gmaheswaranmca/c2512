@@ -1,0 +1,196 @@
+The `Makefile` for `libsun.a` is designed 
+    to automate the process of 
+        compiling source files into object files, 
+        creating a static library (`libsun.a`), and 
+        cleaning up the generated files after the build. 
+
+Here's a breakdown of how each part of the `Makefile` works:
+
+---
+
+`Makefile Overview:`
+The goal of this `Makefile` is 
+to compile `.cpp` files in the `Sources` directory 
+            into object files (`.o`), 
+link them into a static library (`libsun.a`), and 
+    keep object files in a `Build` directory. 
+It also handles cleaning up temporary files after the build.
+
+---
+
+`Variables:`
+
+```makefile
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -IHeaders
+TARGET = libsun.a
+SRCDIR = Sources
+OBJDIR = Build
+HEADDIR = Headers
+```
+
+- ``CXX``: The C++ compiler (`g++`).
+- ``CXXFLAGS``: Compiler flags, including the C++17 standard and 
+    `-Wall` for enabling all warnings. 
+    The `-IHeaders` flag tells the compiler 
+    to look in the `Headers` directory for header files.
+- ``TARGET``: The name of the static library (`libsun.a`).
+- ``SRCDIR``: Directory containing the `.cpp` source files (`Sources`).
+- ``OBJDIR``: Directory where object files will be placed (`Build`).
+- ``HEADDIR``: Directory containing header files (`Headers`).
+
+---
+
+`Source and Object Files:`
+
+```makefile
+SRCS = $(wildcard $(SRCDIR)/*.cpp)
+OBJS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SRCS))
+```
+
+- ``SRCS``: Uses `wildcard` to get all `.cpp` files in the `Sources` directory.
+- ``OBJS``: Converts the `.cpp` file paths in `SRCS` to object file paths 
+    in the `Build` directory. 
+    For example, `Sources/Gcd.cpp` becomes `Build/Gcd.o`.
+
+---
+
+`Default Target:`
+
+```makefile
+all: $(TARGET)
+```
+
+- This is the default target. When `make` is called without arguments, 
+it will try to build `$(TARGET)`, which is `libsun.a`.
+
+---
+
+`Building the Static Library:`
+
+```makefile
+$(TARGET): $(OBJS)
+	@echo "Building static library $(TARGET)..."
+	@ar rcs $@ $^
+```
+
+- ``$(TARGET)``: This target depends on the object files listed in `$(OBJS)`. 
+It will run once all object files are created.
+- ``ar rcs $@ $^``: This command creates the static library. 
+  - `ar` is the archiver tool used to create static libraries.
+  - `rcs` are the flags:
+    - `r` adds files to the archive.
+    - `c` creates the archive if it doesn’t exist.
+    - `s` creates an index for faster linking.
+  - `$@` refers to the target (`libsun.a`).
+  - `$^` refers to all the prerequisites, which are the object files (`$(OBJS)`).
+
+---
+
+`Building Object Files:`
+
+```makefile
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(HEADDIR)/%.h | $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+```
+
+- ``$(OBJDIR)/%.o``: This rule tells `make` how to build object files. 
+For each `.cpp` file in `Sources`, 
+it creates an object file in the `Build` directory.
+- ``$(SRCDIR)/%.cpp``: The source file path.
+- ``$(HEADDIR)/%.h``: The corresponding header file 
+in `Headers` (this dependency ensures 
+that if a header file is modified, 
+the source file will be recompiled).
+- ``| $(OBJDIR)``: This ensures that the `Build` directory is created 
+before building object files.
+- ``$(CXX) $(CXXFLAGS) -c $< -o $@``: This is the actual compilation command:
+  - `-c`: Compiles the source file into an object file without linking.
+  - `$<`: Refers to the first prerequisite (the `.cpp` source file).
+  - `$@`: Refers to the target (the `.o` object file).
+
+---
+
+`Ensure Build Directory Exists:`
+
+```makefile
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+```
+
+- This rule ensures that the `Build` directory exists 
+before any object files are placed into it. 
+The `-p` flag makes `mkdir` create the directory 
+only if it doesn’t already exist.
+
+---
+
+`Clean Up:`
+
+```makefile
+clean:
+	@echo "Cleaning up..."
+	@rm -rf $(OBJDIR)
+	@rm -f $(TARGET)
+```
+
+- ``clean``: The `clean` target removes all generated files, 
+including object files and the static library.
+  - `rm -rf $(OBJDIR)`: Removes the entire `Build` directory and 
+  its contents.
+  - `rm -f $(TARGET)`: Removes the `libsun.a` static library.
+
+---
+
+`Optional Debugging (Print Detected Files):`
+
+```makefile
+print:
+	@echo "Source files: $(SRCS)"
+	@echo "Object files: $(OBJS)"
+```
+
+- ``print``: This target prints the list of source files and object files, 
+which can help debug if the `Makefile` is detecting the files correctly.
+
+---
+
+`How the Makefile Works:`
+
+1. `Compiling Object Files:` 
+When you run `make`, the `$(TARGET)` target is built. 
+`make` first checks the object files listed in `$(OBJS)` 
+to see if they are up to date. 
+f not, it compiles them using the rule for `%.o` 
+(i.e., `.cpp` to `.o`).
+2. `Creating the Static Library:` 
+After compiling all object files, 
+`make` proceeds to create the static library (`libsun.a`) 
+using the `ar` command.
+3. `Cleaning Up:` After building, 
+you can run `make clean` to remove all object files and 
+the static library, cleaning up the build artifacts.
+
+---
+
+`Usage Summary:`
+
+- `Build the library:`
+  ```bash
+  make
+  ```
+
+- `Clean up the build files:`
+  ```bash
+  make clean
+  ```
+
+- `List source and object files (debugging):`
+  ```bash
+  make print
+  ```
+
+This `Makefile` ensures your project is well-structured and easy to maintain, 
+especially as you add or remove source files to the `Sources` directory. 
+The use of dynamic object file management and 
+automatic cleanup helps keep the project organized.

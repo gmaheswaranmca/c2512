@@ -1,0 +1,99 @@
+Here’s a detailed approach to creating flowcharts 
+for each page of your C++ console application. 
+I will create the flowcharts for the following pages:
+
+1. Main Menu  
+2. Driver Registration  
+3. Login  
+4. Driver Dashboard  
+5. Admin Dashboard
+
+Let’s define the process for each one.
+
+---
+
+1. Main Menu Flowchart
+Steps:
+1. Start the application.
+2. Display the main menu with options:
+   - Driver Registration
+   - Login
+   - Exit
+3. Take user input for the menu option.
+4. Redirect based on the input:
+   - Driver Registration → Go to the registration page.
+   - Login → Go to the login page.
+   - Exit → Terminate the application.
+
+---
+
+2. Driver Registration Flowchart
+Steps:
+1. Start.
+2. Display the registration form.
+3. Accept user inputs (name, license, contact, etc.).
+4. Validate inputs:
+   - If valid, save the details to the database and show "Registration Successful."
+   - If invalid, show an error message and return to the form.
+5. Return to the main menu.
+
+---
+
+3. Login Flowchart
+Steps:
+1. Start.
+2. Display the login form.
+3. Accept username and password.
+4. Validate credentials:
+   - If valid, check user type:
+     - Driver → Redirect to Driver Dashboard.
+     - Admin → Redirect to Admin Dashboard.
+   - If invalid, show an error message and return to the form.
+5. End.
+
+---
+
+4. Driver Dashboard Flowchart
+Steps:
+1. Start.
+2. Display dashboard options:
+   - View Reservations
+   - Make a Reservation
+   - View Payment History
+   - Logout
+3. Take user input for the option.
+4. Redirect based on the option:
+   - View Reservations → Display reservations.
+   - Make a Reservation → Go to reservation page.
+   - View Payment History → Display payment history.
+   - Logout → Return to the main menu.
+
+---
+
+5. Admin Dashboard Flowchart
+Steps:
+1. Start.
+2. Display dashboard options:
+   - Manage Floors
+   - Manage Parking Spots
+   - Manage Admins
+   - View Bookings
+   - View Payments
+   - Logout
+3. Take user input for the option.
+4. Redirect based on the option:
+   - Manage Floors → Show floor management options.
+   - Manage Parking Spots → Show spot management options.
+   - Manage Admins → Show admin management options.
+   - View Bookings → Show booking history.
+   - View Payments → Show payment records.
+   - Logout → Return to the main menu.
+5. End.
+
+---
+
+Would you like me to create graphical representations 
+for these detailed flowcharts? 
+If so, I can provide image-based or 
+editable flowchart diagrams. 
+Let me know!

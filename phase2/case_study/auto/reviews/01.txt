@@ -1,0 +1,21 @@
+minhaj
+    app > driver registration 
+    app > login (as driver) > driver page {profile<view, edit>, 
+                                           change password, reservation<do, cancel>,
+                                           payment<pay>}
+vinayak
+    app { driver registartion | login | exit }
+    app > login
+    app > login (as admin) > admin page {admin managemnt, floor mgmt, spot mgmt,
+                                         driver<search, delete>, 
+                                         payment history, 
+                                         reservation history}
+    app > login (as admin) > admin page > admin mgmt > create | edit | delete | search  
+sana    
+    app > login (as admin) > admin page > floot mgmt > create | edit | delete | search | show availability  
+    app > login (as admin) > admin page > spot mgmt > create | edit | delete | search  
+pitchumani
+    app > login (as admin) > admin page > reseravtions > today | by date 
+    app > login (as admin) > admin page > payments > today | by date 
+    app > login (as driver) > driver page > reservation<do, cancel>
+    app > login (as driver) > driver page > payment<pay>

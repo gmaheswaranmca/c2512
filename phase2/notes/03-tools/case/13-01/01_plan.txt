@@ -1,0 +1,37 @@
+Project Structure:
+    13-01/
+    ├── LibSun/
+        ├── Build/               # Object files stored here temporarily
+        │   ├── Gcd.o
+        │   ├── Arithmetic.o
+        ├── Headers/
+        │   ├── Gcd.h
+        │   ├── Arithmetic.h
+        ├── Sources/
+        │   ├── Gcd.cpp
+        │   ├── Arithmetic.cpp
+        ├── libsun.a             # Static library
+        ├── Makefile
+    ├── App/
+        ├── Build/               # Object files stored here temporarily
+        │   ├── Fraction.o
+        │   ├── Main.o
+        ├── Headers/
+        │   ├── Fraction.h
+        ├── Sources/
+        │   ├── Fraction.cpp
+        ├── Main.cpp             # main function
+        ├── Makefile
+        ├── App.out 
+    ├── LibSunTest/
+        ├── SunTest.cpp          # main function
+        ├── SunTest.o
+        ├── Makefile
+        ├── testLibSun 
+
+I have all source codes and make files in resepective files.
+Each make file has all, clean, print. 
+For App, LibSunTest we have run and test respectively.
+
+I like to invoke make files from "13-01/" 
+by given options which has to be invoked.

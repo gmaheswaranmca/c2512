@@ -1,0 +1,154 @@
+Driver Registration Flowchart Steps
+
+1. Start
+    - User selects the Driver Registration option from the main menu.
+
+2. Input Driver Name
+    - Prompt: "Enter your Name: "
+    - Validation: Check if the input is not empty.
+    - If valid, proceed to the next step.  
+    - If invalid, display: "Name is required" and re-prompt.
+
+3. Input Password
+    - Prompt: "Enter your Password: "
+    - Validation: Check if the input is not empty and meets strength criteria 
+        (e.g., length, alphanumeric, special characters).
+    - If valid, proceed.  
+    - If invalid, display: 
+        "Password is required and must meet strength criteria" and re-prompt.
+
+4. Input Email
+    - Prompt: "Enter your Email: "
+    - Validation:
+      - Check if the input is not empty.
+      - Check if it matches an email format (e.g., `example@domain.com`).
+      - Check if the email already exists in the system.
+    - If valid, proceed.  
+    - If invalid, display specific error messages:
+        - "Email is required"
+        - "Invalid email format"
+        - "Email already exists"  
+      Re-prompt accordingly.
+
+5. Input Phone Number
+    - Prompt: "Enter your Phone Number: "
+    - Validation:
+      - Check if the input is not empty.
+      - Check if it contains exactly 10 digits.
+      - Check if the phone number already exists in the system.
+    - If valid, proceed.  
+    - If invalid, display specific error messages:
+        - "Phone number is required"
+        - "Phone number must be 10 digits"
+        - "Phone number already exists"  
+      Re-prompt accordingly.
+
+6. Input Car Number
+    - Prompt: "Enter your Car Number: "
+    - Validation:
+      - Check if the input is not empty.
+      - Check if the car number already exists in the system.
+    - If valid, proceed.  
+    - If invalid, display specific error messages:
+        - "Car number is required"
+        - "Car number already exists"  
+      Re-prompt accordingly.
+
+7. Input Car Model
+    - Prompt: "Enter your Car Model: "
+    - Validation: Check if the input is not empty.
+    - If valid, proceed.  
+    - If invalid, display: "Car model is required" and re-prompt.
+
+8. Select Car Type
+    - Prompt: "Select your Car Type: "
+      - Display options (e.g., SUV, Sedan, Hatchback).
+    - Validation: Check if a valid option is selected.
+    - If valid, proceed.  
+    - If invalid, display: "Please select a valid car type" and re-prompt.
+
+9. Final Validation
+    - Display all entered details for confirmation.
+    - Prompt: "Are all the details correct? (Y/N)"
+    - If Y, save the details to the system/database and proceed to the success message.  
+    - If N, allow the user to edit incorrect fields or restart the registration process.
+
+10. Success Message
+    - Display: "Driver Registration Successful!"
+    - Redirect to the main menu.
+
+11. End
+
+---
+
+Validations Summary in Flowchart
+- Required: All fields are mandatory.
+- Strength Check: Password validation (e.g., length, complexity).
+- Email: Format check and duplication validation.
+- Phone Number: 10-digit validation and duplication validation.
+- Car Details: Non-empty checks and duplication validation.
+- Car Type: Ensure the user selects a valid option.
+
+---
+
+
+=========
+
+Flowchart for Login Page
+
+---
+
+Steps for Login Page
+
+1. Start
+    - User selects the Login option from the menu.
+
+2. Input Username
+    - Prompt: "Enter your Username: "
+    - Validation:
+        - Check if the username is not empty.
+    - If valid, proceed to the next step.
+    - If invalid:
+        - Display: "Username is required."
+        - Re-prompt for the username.
+
+3. Input Password
+    - Prompt: "Enter your Password: "
+    - Validation:
+        - Check if the password is not empty.
+    - If valid, proceed to authentication.
+    - If invalid:
+        - Display: "Password is required."
+        - Re-prompt for the password.
+
+4. Authentication
+    - Check if the username exists in the system/database.
+    - Check if the entered password matches the stored password for the username.
+
+5. Authentication Success
+    - If both username and password are correct:
+        - Display: "Login Successful!"
+        - Redirect to 
+            Driver Page if User.Role is Driver, go to 
+            Admin Page if User.Role is Admin, go to  
+6. Authentication Failure
+    - If either the username does not exist or the password is incorrect:
+        - Display: "Invalid Username or Password."
+        - Provide an option to:
+            - Reattempt login.
+            - Exit to the main menu.
+
+7. End
+
+---
+
+Validations in Flowchart
+- Required Fields:
+  - Both username and password must be entered.
+- Authentication:
+  - Validate against stored data for correctness.
+  - Handle case sensitivity if required (e.g., for the username or password).
+- Feedback:
+  - Inform users of specific issues (e.g., missing fields or incorrect credentials).
+
+
