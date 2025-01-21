@@ -1,41 +1,20 @@
-app > login
-app > login (as admin) > admin page
-app > login (as manager) > manager page
-app > login (as pharmacist) > pharmacist page
-app > login (as admin) > admin page > user management > create | edit | delete | search | change password
-app > login (as admin) > admin page > supplier management > create | edit | delete | search 
-app > login (as admin) > admin page > product management > create | edit | delete | search 
-app > login (as admin) > admin page > purchase management > create | cancel | view | today | date
-app > login (as admin) > admin page > sales management > create | cancel | view | today | date
-app > login (as admin) > admin page > change password 
-app > login (as manager) > manager page > supplier management > create | edit | delete | search 
-app > login (as manager) > manager page > product management > create | edit | delete | search 
-app > login (as manager) > manager page > purchase management > create | cancel | view | today | date
-app > login (as manager) > manager page > sales management > create | cancel | view | today | date
-app > login (as manager) > manager page > change password
-app > login (as pharmacist) > pharmacist page > sales management > create | cancel | view | today 
-app > login (as pharmacist) > pharmacist page > change password
+app > login                                     @sooraj 1
+app > login (as admin) > admin page             @sooraj 2
+app > login (as manager) > manager page         @sooraj 3
+app > login (as pharmacist) > pharmacist page   @sooraj 4
+app > login (as admin) > admin page > user management > create | edit | delete | search | change password @sooraj 5
+app > login (as admin) > admin page > supplier management > create | edit | delete | search               @nimisha 1
+app > login (as admin) > admin page > product management > create | edit | delete | search                @vishak 1  
+app > login (as admin) > admin page > purchase management > create | cancel | view | today | date         @josh 1
+app > login (as admin) > admin page > sales management > create | cancel | view | today | date            @venkatesh 1
+app > login (as admin) > admin page > change password                                                     @sooraj 6 
+app > login (as manager) > manager page > supplier management > create | edit | delete | search           @nimisha  2
+app > login (as manager) > manager page > product management > create | edit | delete | search            @vishak 2
+app > login (as manager) > manager page > purchase management > create | cancel | view | today | date     @josh 2  
+app > login (as manager) > manager page > sales management > create | cancel | view | today | date        @venkatesh 2
+app > login (as manager) > manager page > change password                                                 @sooraj 7
+app > login (as pharmacist) > pharmacist page > sales management > create | cancel | view | today         @venkatesh 3
+app > login (as pharmacist) > pharmacist page > change password                                           @sooraj 8
 
-venkatesh:
-    app > login (as admin) > admin page > sales management > create | cancel | view | today | date
-    app > login (as manager) > manager page > sales management > create | cancel | view | today | date
-    app > login (as pharmacist) > pharmacist page > sales management > create | cancel | view | today 
-vishak: 
-    app > login (as admin) > admin page > product management > create | edit | delete | search 
-    app > login (as manager) > manager page > product management > create | edit | delete | search 
-nimisha:
-    app > login (as admin) > admin page > supplier management > create | edit | delete | search 
-    app > login (as manager) > manager page > supplier management > create | edit | delete | search 
-josh:
-    app > login (as admin) > admin page > purchase management > create | cancel | view | today | date
-    app > login (as manager) > manager page > purchase management > create | cancel | view | today | date
-sooraj:
-    app > login
-    app > login (as admin) > admin page
-    app > login (as manager) > manager page
-    app > login (as pharmacist) > pharmacist page
-    app > login (as admin) > admin page > user management > create | edit | delete | search | change password
-    app > login (as admin) > admin page > change password 
-    app > login (as manager) > manager page > change password
-    app > login (as pharmacist) > pharmacist page > change password
-
+@sooraj @nimisha @vishak @josh @venkatesh 
+8       2        2       2     3

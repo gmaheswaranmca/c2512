@@ -1,45 +1,29 @@
-athira: 
-    app > login (as doctor) > doctor page > consultaion management > 
-                                create medical history [patiren number > ...] 
-                                view last medical history [ patient number  
-                                                        > last (consulation) history 
-                                                      (1) Prev (2) Next (3) Enter Consulation | 
-                                edit medical history [patiren number > ...]
-    app > login (as operator) > operator page > payment management >
-            create [ > patient number, narration:] | 
-            view | 
-            search |   
-    app > login (as admin) > admin page > department management > create | edit | delete | search 
-    app > login (as patient) > patient page > view medical history
-                        [patient number : auto  
-                           > last (consulation) history 
-                          (1) Prev (2) Next ]
-    app > login (as  help desk operator) > operator page > payment{create}
-ayisha
-    app > patient registration
-    app > login (as patient) > patient page > view profile                
-    app > login (as  help desk operator) > operator page > 
-                    patient <create, edit, delete, search>
-abel
-    app > login
-    app > login (as patient) > patient page {appointments<book, 
-                cancel,view>, 
-                profile<view>, 
-                med-his<view>,
-                payment history[desc by date]} 
-    app > login (as doctor) > doctor page {consulation<create,view,edit>, 
-                schedule<view>, 
-                profile<view>, 
-                change password,
-                appointment<view>} 
-    app > login (as admin) > admin page 
-    app > login (as  help desk operator) > operator page {apointment<create,view,edit,cancel>, payment{create},
-                    patient <create, edit, delete, search>}
-dhaheen 
-    app > login (as patient) > patient page > book appointment
-    app > login (as patient) > patient page > cancel appointment                
-    app > login (as patient) > patient page > view appointment 
-    app > login (as  help desk operator) > operator page {apointment<create,view,edit,cancel>}
-nayana 
-    app > login (as admin) > admin page > doctor management > create | edit | deactivate doctor | search 
-    
+app                                                         @abel 1
+app > login                                                 @abel 2
+app > patient registration                                  @ayisha 1
+app > login (as patient) > patient page                     @abel 3
+app > login (as doctor) > doctor page                       @abel 4
+app > login (as admin) > admin page                         @abel 5
+app > login (as  help desk operator) > operator page        @abel 6
+app > login (as patient) > patient page > view profile      @ayisha  2             
+app > login (as patient) > patient page > appointment management > book | cancel | view     @dhaheenc1
+app > login (as patient) > patient page > view medical history > Last | Prev | Next         @athira 1
+app > login (as patient) > patient page > change password                                   @abel 7
+app > login (as doctor) > doctor page > medical history management > create |               @athira  
+                        [view > search by number > last | prev | next |] | edit 
+app > login (as doctor) > doctor page > change password                                      @abel 8
+app > login (as admin) > admin page > department management > create | edit | delete | search               @athira 2
+app > login (as admin) > admin page > user management > create | view | edit | delete | change password     @abel 9
+app > login (as admin) > admin page > doctor management > create | edit | deactivate doctor | search        @nayana 1
+app > login (as admin) > admin page > schedule > create | view | edit | delete                              @dhaheen 2
+app > login (as admin) > admin page > payment management > create | view | search                           @athira 3
+app > login (as admin) > admin page > patient management > create | edit | delete | search                  @ayisha 3
+app > login (as admin) > admin page > appointment management > book | cancel | view                         @dhaheen 3
+app > login (as admin) > admin page > change password                                                       @abel  10 
+app > login (as operator) > operator page > payment management > create | view | search                     @athira 4
+app > login (as operator) > operator page > patient management > create | edit | delete | search            @ayisha 4
+app > login (as operator) > operator page > appointment management > book | cancel | view                   @dhaheen 4
+app > login (as operator) > operator page > change password                                                 @abel 11
+
+@able @athira @ayisha @dhaheen @nayana 
+11    4       4       4        1 
