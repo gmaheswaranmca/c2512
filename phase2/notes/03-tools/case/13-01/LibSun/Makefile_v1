@@ -1,0 +1,15 @@
+all: libsun.a
+Build/Arithmetic.o: Sources/Arithmetic.cpp | Build
+	g++ -IHeaders -c Sources/Arithmetic.cpp -o Build/Arithmetic.o
+Build/Gcd.o: Sources/Gcd.cpp | Build
+	g++ -IHeaders -c Sources/Gcd.cpp -o Build/Gcd.o
+libsun.a: Build/Arithmetic.o Build/Gcd.o
+	@ar rcs libsun.a Build/Arithmetic.o Build/Gcd.o
+Build: 
+	@mkdir Build
+clean:
+	@echo "\nCleaning up..."
+	@rm -rf Build
+	@rm -f libsun.a
+
+

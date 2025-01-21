@@ -1,0 +1,11 @@
+all: libsun.a
+Build/%.o: Sources/%.cpp Build
+	g++ -IHeaders -c $< -o $@
+libsun.a: Build/Arithmetic.o Build/Gcd.o
+	@ar rcs libsun.a Build/Arithmetic.o Build/Gcd.o
+Build: 
+	@mkdir Build
+clean:
+	@echo "\nCleaning up..."
+	@rm -rf Build
+	@rm -f libsun.a
