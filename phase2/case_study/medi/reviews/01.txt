@@ -1,3 +1,21 @@
+app > login
+app > login (as admin) > admin page
+app > login (as manager) > manager page
+app > login (as pharmacist) > pharmacist page
+app > login (as admin) > admin page > user management > create | edit | delete | search | change password
+app > login (as admin) > admin page > supplier management > create | edit | delete | search 
+app > login (as admin) > admin page > product management > create | edit | delete | search 
+app > login (as admin) > admin page > purchase management > create | cancel | view | today | date
+app > login (as admin) > admin page > sales management > create | cancel | view | today | date
+app > login (as admin) > admin page > change password 
+app > login (as manager) > manager page > supplier management > create | edit | delete | search 
+app > login (as manager) > manager page > product management > create | edit | delete | search 
+app > login (as manager) > manager page > purchase management > create | cancel | view | today | date
+app > login (as manager) > manager page > sales management > create | cancel | view | today | date
+app > login (as manager) > manager page > change password
+app > login (as pharmacist) > pharmacist page > sales management > create | cancel | view | today 
+app > login (as pharmacist) > pharmacist page > change password
+
 venkatesh:
     app > login (as admin) > admin page > sales management > create | cancel | view | today | date
     app > login (as manager) > manager page > sales management > create | cancel | view | today | date
