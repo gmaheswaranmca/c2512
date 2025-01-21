@@ -6,13 +6,13 @@ app > login (as admin) > admin page                 @vinayak 3
 app > login (as driver) > driver page > reservation<do, cancel> @pitchumani 1
 app > login (as driver) > driver page > payment<pay>            @pitchumani 2
 app > login (as driver) > driver page > {profile<view, edit>,   @minhaj 3
-app > login (as driver) > driver page > change password         @minhaj 4
-app > login (as admin) > admin page > admin mgmt > create | edit | delete | search | chang password         @minhaj 5
+app > login (as driver) > driver page > change password         @vinayak 4
+app > login (as admin) > admin page > admin mgmt > create | edit | delete | search | chang password         @vinayak 5
 app > login (as admin) > admin page > floot mgmt > create | edit | delete | search | show availability      @sana 1
 app > login (as admin) > admin page > spot mgmt > create | edit | delete | search                           @sana 2
 app > login (as admin) > admin page > reseravtions > today | by date                                        @pitchumani 3
 app > login (as admin) > admin page > payments > today | by date                                            @pitchumani 4
-app > login (as admin) > admin page > change password                                                       @minhaj  6 
+app > login (as admin) > admin page > change password                                                       @vinayak  6 
 
 @vinayak @minhaj @pitchumani @sana 
-3        6       4           2
+6        3       4           2

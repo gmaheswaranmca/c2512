@@ -8,22 +8,25 @@ app > login (as  help desk operator) > operator page        @abel 6
 app > login (as patient) > patient page > view profile      @ayisha  2             
 app > login (as patient) > patient page > appointment management > book | cancel | view     @dhaheenc1
 app > login (as patient) > patient page > view medical history > Last | Prev | Next         @athira 1
+app > login (as patient) > patient page > payment > view                                   @athira 6
 app > login (as patient) > patient page > change password                                   @abel 7
-app > login (as doctor) > doctor page > medical history management > create |               @athira  
+app > login (as doctor) > doctor page > medical history management > create |               @athira 2 
                         [view > search by number > last | prev | next |] | edit 
+app > login (as doctor) > doctor page > view profile                                        @nayana 1
 app > login (as doctor) > doctor page > change password                                      @abel 8
-app > login (as admin) > admin page > department management > create | edit | delete | search               @athira 2
+app > login (as admin) > admin page > department management > create | edit | delete | search               @athira 3
 app > login (as admin) > admin page > user management > create | view | edit | delete | change password     @abel 9
-app > login (as admin) > admin page > doctor management > create | edit | deactivate doctor | search        @nayana 1
+app > login (as admin) > admin page > doctor management > create | edit | deactivate doctor | search        @nayana 2
 app > login (as admin) > admin page > schedule > create | view | edit | delete                              @dhaheen 2
-app > login (as admin) > admin page > payment management > create | view | search                           @athira 3
+app > login (as admin) > admin page > payment management > create | view | search                           @athira 4
 app > login (as admin) > admin page > patient management > create | edit | delete | search                  @ayisha 3
 app > login (as admin) > admin page > appointment management > book | cancel | view                         @dhaheen 3
+app > login (as admin) > admin page > medical history >  view                                               @athira 7
 app > login (as admin) > admin page > change password                                                       @abel  10 
-app > login (as operator) > operator page > payment management > create | view | search                     @athira 4
+app > login (as operator) > operator page > payment management > create | view | search                     @athira 5
 app > login (as operator) > operator page > patient management > create | edit | delete | search            @ayisha 4
 app > login (as operator) > operator page > appointment management > book | cancel | view                   @dhaheen 4
 app > login (as operator) > operator page > change password                                                 @abel 11
 
 @able @athira @ayisha @dhaheen @nayana 
-11    4       4       4        1 
+11    7       4       4        2
