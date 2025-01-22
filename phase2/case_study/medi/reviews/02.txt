@@ -4,3 +4,78 @@ user_file_repo.h           : < UserFileRepo : IUserRepo > { + LastId_ CreateFile
 
 ----------------------------------------- gtest 
 
+
+
+/app 
+/Test1
+    Test1.cpp Makefile [header/{users.h iuser_repo.h user_file_repo.h}]
+
+----------------------------Test1/Makefile--------------------------------------------------
+# Makefile for testing auto user repo 
+
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Iheader -I/usr/local/include
+LDFLAGS = -L/usr/local/lib -lgtest -lgtest_main -pthread
+
+# Source files
+SRCS = Test1.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+# Target executable
+TARGET = Test1.out
+
+# Default target
+all: $(TARGET)
+
+# Build the test executable
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+# Build object files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Run tests
+test: all
+	@echo "\nRunning Tests $(TARGET)..."
+	./$(TARGET)
+
+# Clean up
+clean:
+	@rm -f $(OBJS) $(TARGET)
+-------------------------------------------------------------------------------------
+
+
+---------------------------------------Test1/Test1.cpp----------------------------------------------
+//Prerequisites: sudo apt-get install libgtest-dev
+#include <gtest/gtest.h>
+#include "../LibSun/Headers/Gcd.h"
+#include "../LibSun/Headers/Arithmetic.h"
+
+#include <string>
+#include "./header/users.h"
+#include "./header/user_file_repo.h"
+
+// Sample test for Gcd function
+TEST(UserFileRepoCreate, Create) {
+    User user;
+    std::string email = "minhaj@gmail.com";
+    user.SetEmail(email);
+    user.SetPhone("1111222233");
+    ....
+    UserFileRepo repo;
+    repo.Create(user);
+    //
+    //User createdUser = repo.ReadByEmail(email);
+    //EXPECT_EQ(createdUser.GetEmail(), email);
+    EXPECT_EQ(1, 1);
+}
+
+// Main function to run tests
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+-------------------------------------------------------------------------------------
+

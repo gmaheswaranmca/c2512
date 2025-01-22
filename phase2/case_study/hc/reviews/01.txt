@@ -15,7 +15,7 @@ app > login (as doctor) > doctor page > medical history management > create |   
 app > login (as doctor) > doctor page > view profile                                        @nayana 1
 app > login (as doctor) > doctor page > change password                                      @abel 8
 app > login (as admin) > admin page > department management > create | edit | delete | search               @athira 3
-app > login (as admin) > admin page > user management > create | view | edit | delete | change password     @abel 9
+app > login (as admin) > admin page > user management > create | view | edit | delete | change password | search   @abel 9
 app > login (as admin) > admin page > doctor management > create | edit | deactivate doctor | search        @nayana 2
 app > login (as admin) > admin page > schedule > create | view | edit | delete                              @dhaheen 2
 app > login (as admin) > admin page > payment management > create | view | search                           @athira 4
