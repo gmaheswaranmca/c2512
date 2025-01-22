@@ -79,3 +79,31 @@ int main(int argc, char **argv) {
 }
 -------------------------------------------------------------------------------------
 
+
+
+Purhcase:
+
+
+purchase.h
+ 
+PurchaseMaster 
+PurchaseItem 
+FilePurchaseMaster
+FilePurchaseItem 
+PurchaseMasterConverter
+PurchaseItemConverter
+
+ipurchase_repo.h
+IPurchaseMasterRep 
+    + void Create(PurchaseMaster& purchase) = 0
+    + PurchaseMaster ReadByInvoiceNumber(std::string invoiceNumber) = 0
+IPurchaseItemRepo 
+    + void Create(PurchaseItem& purchaseItem) = 0
+    + vector<PurchaseItem> ReadByPurchaseId(identity_t purchaseId) = 0
+
+purchase_file_repo.h 
+PurchaseFileMasterRepo : IPMRepo 
+PurchaseItemFielRepo : IPIRepo
+
+
+------------------------------------------------------------------------------------- gtest 
