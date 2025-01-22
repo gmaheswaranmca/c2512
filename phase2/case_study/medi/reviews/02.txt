@@ -1,0 +1,6 @@
+user.h                     : User, FileUser, UserConverter
+iuser_repo.h               : IUserRepo {+Create, +ReadByEmail}
+user_file_repo.h           : < UserFileRepo : IUserRepo > { + LastId_ CreateFile_  }
+
+----------------------------------------- gtest 
+
