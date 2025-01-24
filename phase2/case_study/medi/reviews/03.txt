@@ -1,0 +1,10 @@
+        1     2        3           4       5       
+tables: user, supplier,product,    sales,  purchase
+        0     0        0           0       0       
+model   0     0        0           0       0       
+repo    0     0        0           0       0       
+usr_mg  0     -        -           -       -       
+login   
+sup_mg  -     0        -           -       -       
+pro_mg  -     0        0           -       -       
+pur_mg  -     0        0           -       0

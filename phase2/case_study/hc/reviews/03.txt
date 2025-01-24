@@ -1,0 +1,17 @@
+        1     2        3           4       5                6         7             8
+tables: user, patient, department, doctor, medical_history, schedule, appointment   payment 
+        0     0        0           0       0                0         0             0          123458 
+model   0     0        0           0       0                0         0             0          123458 
+repo    0     0        0           0       0                0         0             0          123458 
+usr_mg  0     -        -           -       -                -         -             -
+login   
+pat_mg  0     0        -           -       -                -         -             -
+pat_reg 0     0        -           -       -                -         -             -
+dep_mg  -     -        0           -       -                -         -             -          
+doc_mg  0     -        0           0       -                -         -             -
+sch     -     -        -           0       -                0         -             -
+appo    -     0        -           0       -                0         0             -
+consul  -     0        -           0       0                -         0             -
+payment -     0        -           -       0                -         0             0    
+
+
