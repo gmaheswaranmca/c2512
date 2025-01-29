@@ -1,0 +1,154 @@
+Google Test (GTest) supports parameterized tests, 
+allowing you to run the same test with different input values, 
+making it efficient for testing multiple scenarios. 
+
+This is particularly useful for testing functions
+with a variety of inputs to ensure correctness.
+
+---
+
+`Steps to Create Parameterized Tests with GTest`
+1. `Include Necessary Headers`
+Ensure you include the GTest headers:
+```cpp
+#include <gtest/gtest.h>
+```
+
+---
+
+2. `Define a Test Fixture`
+A test fixture is a class derived from `::testing::Test` 
+that holds common test resources or setup code:
+```cpp
+class ParameterizedTestExample : public ::testing::TestWithParam<int> {
+    // You can define shared resources here if needed
+};
+```
+
+The `::testing::TestWithParam<Type>` is used to specify the parameter type.
+
+---
+
+3. `Write the Parameterized Test`
+Define the test using `TEST_P` and access the parameter using `GetParam()`:
+```cpp
+TEST_P(ParameterizedTestExample, TestIsEven) {
+    int value = GetParam();
+    EXPECT_EQ(value % 2, 0) << "Value is not even: " << value;
+}
+```
+
+---
+
+4. `Provide Parameters`
+Use `INSTANTIATE_TEST_SUITE_P` (or the older `INSTANTIATE_TEST_CASE_P`) to provide parameters to the test:
+```cpp
+INSTANTIATE_TEST_SUITE_P(
+    EvenNumbers,                // Test suite name
+    ParameterizedTestExample,   // Test case name
+    ::testing::Values(2, 4, 6, 8, 10)  // Parameters
+);
+```
+
+---
+
+5. `Run the Tests`
+Compile and run your tests as usual. 
+GTest will execute the `TestIsEven` test with each value provided.
+
+---
+
+`Example: Full Parameterized Test for a Function`
+Code to Test
+Let’s test a simple function that checks if a number is even:
+```cpp
+bool IsEven(int number) {
+    return number % 2 == 0;
+}
+```
+
+GTest Code
+```cpp
+#include <gtest/gtest.h>
+
+// Function to test
+bool IsEven(int number) {
+    return number % 2 == 0;
+}
+
+// Test Fixture
+class ParameterizedTestExample : public ::testing::TestWithParam<int> {};
+
+// Test Case
+TEST_P(ParameterizedTestExample, TestIsEven) {
+    int value = GetParam();
+    EXPECT_TRUE(IsEven(value)) << "Value is not even: " << value;
+}
+
+// Provide Parameters
+INSTANTIATE_TEST_SUITE_P(
+    EvenNumbers,                // Test suite name
+    ParameterizedTestExample,   // Test case name
+    ::testing::Values(2, 4, 6, 8, 10)  // Parameters
+);
+
+int main(int argc, char `argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+```
+
+---
+
+`Advanced Usage`
+`1. Custom Parameter Generators`
+You can create complex sets of parameters using `::testing::ValuesIn`:
+```cpp
+std::vector<int> test_values = {2, 4, 6, 8, 10};
+INSTANTIATE_TEST_SUITE_P(
+    CustomValues,
+    ParameterizedTestExample,
+    ::testing::ValuesIn(test_values)
+);
+```
+
+`2. Testing Multiple Parameters`
+For functions requiring multiple parameters, use `std::tuple`:
+#Example:
+Testing a function that adds two numbers:
+```cpp
+#include <tuple>
+
+// Function to test
+int Add(int a, int b) {
+    return a + b;
+}
+
+// Test Fixture
+class AddTest : public ::testing::TestWithParam<std::tuple<int, int, int>> {};
+
+// Test Case
+TEST_P(AddTest, TestAddition) {
+    int a, b, expected;
+    std::tie(a, b, expected) = GetParam();
+    EXPECT_EQ(Add(a, b), expected);
+}
+
+// Parameters
+INSTANTIATE_TEST_SUITE_P(
+    AdditionTests,
+    AddTest,
+    ::testing::Values(
+        std::make_tuple(1, 1, 2),
+        std::make_tuple(2, 3, 5),
+        std::make_tuple(10, 15, 25)
+    )
+);
+```
+
+---
+
+`Benefits of Parameterized Tests`
+1. `Reusable Test Code`: Write the test logic once and reuse it for different inputs.
+2. `Better Coverage`: Test various edge cases easily.
+3. `Cleaner Test Suites`: Avoid repetitive test cases for similar logic.

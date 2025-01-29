@@ -1,0 +1,151 @@
+In unit testing, `setup` and `teardown` are processes 
+to prepare and clean up test environments. 
+
+They ensure that each test runs in isolation 
+without being affected by the results of other tests. 
+
+This is especially crucial 
+for testing systems 
+that deal with files, databases, or any shared resources.
+
+---
+
+`Setup and Teardown in Google Test (GTest)`
+
+In Google Test, you use the `SetUp()` and `TearDown()` methods 
+within a test fixture class. 
+These methods are automatically called before and after each test, respectively.
+
+---
+
+`Example: Setup and Teardown for `UserManager` Tests`
+
+`Test Structure`
+1. `Setup`: Create test files or initialize test data.
+2. `TearDown`: Remove test files or clean up resources.
+
+Here’s how you can implement setup and teardown for `UserManager` tests:
+
+---
+
+`Test Code`
+```cpp
+#include <gtest/gtest.h>
+#include "User.h"
+#include "UserManager.h"
+
+class UserManagerTest : public ::testing::Test {
+protected:
+    UserManager* manager;
+    std::string testFile = "test_users.dat";
+
+    // Called before each test
+    void SetUp() override {
+        // Initialize UserManager with a test file
+        manager = new UserManager(testFile);
+        manager->addUser(User("Alice", 25, "alice@example.com"));
+        manager->addUser(User("Bob", 30, "bob@example.com"));
+    }
+
+    // Called after each test
+    void TearDown() override {
+        // Cleanup the file and manager instance
+        delete manager;
+        std::remove(testFile.c_str());
+    }
+};
+
+TEST_F(UserManagerTest, AddUser) {
+    User newUser("Charlie", 28, "charlie@example.com");
+    EXPECT_TRUE(manager->addUser(newUser));
+
+    User* retrieved = manager->getUser("Charlie");
+    ASSERT_NE(retrieved, nullptr);
+    EXPECT_EQ(newUser, *retrieved);
+}
+
+TEST_F(UserManagerTest, DeleteUser) {
+    EXPECT_TRUE(manager->deleteUser("Alice"));
+    EXPECT_EQ(manager->getUser("Alice"), nullptr);
+}
+
+TEST_F(UserManagerTest, UpdateUser) {
+    User updatedUser("Bob", 35, "bob.new@example.com");
+    EXPECT_TRUE(manager->updateUser("Bob", updatedUser));
+
+    User* retrieved = manager->getUser("Bob");
+    ASSERT_NE(retrieved, nullptr);
+    EXPECT_EQ(updatedUser, *retrieved);
+}
+
+TEST_F(UserManagerTest, RetrieveNonExistentUser) {
+    EXPECT_EQ(manager->getUser("NonExistent"), nullptr);
+}
+```
+
+---
+
+`Explanation`
+
+1. `Setup (`SetUp`)`:
+   - Initializes a fresh `UserManager` instance with a test file.
+   - Adds a few initial users to ensure consistent test data for all tests.
+
+2. `Teardown (`TearDown`)`:
+   - Deletes the `UserManager` instance to free memory.
+   - Removes the test file to avoid leaving stale data on disk.
+
+3. ``TEST_F``:
+   - Each test case uses the `UserManagerTest` fixture, inheriting the setup and teardown logic.
+
+---
+
+`Complete Test Workflow`
+
+`Setup Steps`
+- Create or reset a test file.
+- Initialize objects like `UserManager`.
+- Populate objects with necessary test data.
+
+`TearDown Steps`
+- Delete temporary files.
+- Deallocate dynamic memory.
+- Reset shared resources to avoid interference.
+
+---
+
+`Advanced: Setup/TearDown for All Tests`
+
+For actions that need to occur `once before/after all tests`, you can use `SetUpTestSuite` and `TearDownTestSuite`:
+
+```cpp
+class UserManagerTestSuite : public ::testing::Test {
+protected:
+    static std::string testFile;
+
+    static void SetUpTestSuite() {
+        // Called once before any tests in the suite
+        std::cout << "Setting up test suite\n";
+    }
+
+    static void TearDownTestSuite() {
+        // Called once after all tests in the suite
+        std::remove(testFile.c_str());
+        std::cout << "Tearing down test suite\n";
+    }
+};
+
+std::string UserManagerTestSuite::testFile = "test_suite_users.dat";
+
+TEST_F(UserManagerTestSuite, ExampleTest) {
+    ASSERT_TRUE(true);
+}
+```
+
+---
+
+`Key Points`
+- Use `SetUp` and `TearDown` for per-test initialization and cleanup.
+- Use `SetUpTestSuite` and `TearDownTestSuite` for global setup/teardown.
+- Always clean up shared resources like files or memory to avoid side effects.
+

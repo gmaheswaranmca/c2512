@@ -1,0 +1,128 @@
+`Static Analysis Overview`  
+Static analysis is a technique used 
+to examine code `without executing it` 
+to detect issues, enforce coding standards, and 
+improve maintainability. 
+It is widely used 
+for identifying security vulnerabilities, 
+performance bottlenecks, and 
+coding violations.
+
+---
+
+`1. Understanding Static Analysis`
+`Why Use Static Analysis?`  
+- `Detect Bugs Early`: Identifies issues before runtime, reducing debugging time.  
+- `Improve Code Quality`: Enforces best practices and coding standards.  
+- `Enhance Security`: Helps find vulnerabilities (e.g., buffer overflows, SQL injection).  
+- `Optimize Performance`: Identifies inefficient or redundant code.  
+
+`Common Issues Detected by Static Analysis`
+- `Syntax errors`
+- `Code smells` (bad practices)
+- `Memory leaks`
+- `Security vulnerabilities`
+- `Performance bottlenecks`
+- `Coding standard violations (e.g., naming conventions, indentation issues)`
+
+---
+
+`2. Using SONAR for Static Analysis`
+[SonarQube](https://www.sonarsource.com/) is a widely used `static analysis tool` that integrates with CI/CD pipelines.
+
+`Steps to Use SonarQube`
+#`Step 1: Install SonarQube and SonarScanner`
+```sh
+# Download and extract SonarQube
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.1.zip
+unzip sonarqube-9.9.1.zip
+cd sonarqube-9.9.1/bin/linux-x86-64
+./sonar.sh start  # Start SonarQube
+```
+Access `SonarQube Dashboard` at [http://localhost:9000](http://localhost:9000) (default credentials: `admin/admin`).
+
+#`Step 2: Install SonarScanner`
+```sh
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-4.7.0.2747-linux.zip
+unzip sonar-scanner-4.7.0.2747-linux.zip
+export PATH=$PATH:$(pwd)/sonar-scanner-4.7.0.2747-linux/bin
+```
+
+#`Step 3: Analyze a Project`
+- Navigate to your project directory:
+```sh
+cd /path/to/your/project
+```
+- Run analysis:
+```sh
+sonar-scanner \
+  -Dsonar.projectKey=MyProject \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=admin \
+  -Dsonar.password=admin
+```
+
+- View analysis results in SonarQube `Dashboard`.
+
+---
+
+`3. Other Static Analysis Tools`
+`A. C/C++ Static Analysis Tools`
+| Tool | Features |
+|------|----------|
+| `Clang Static Analyzer` | Detects memory leaks, logic errors |
+| `Cppcheck` | Focuses on undefined behavior, portability |
+| `Flawfinder` | Identifies security flaws in C/C++ |
+
+`B. Python Static Analysis Tools`
+| Tool | Features |
+|------|----------|
+| `Pylint` | Checks for errors, coding standards |
+| `Mypy` | Type-checking for Python |
+| `Bandit` | Security analysis of Python code |
+
+`C. Java Static Analysis Tools`
+| Tool | Features |
+|------|----------|
+| `Checkstyle` | Code style enforcement |
+| `FindBugs` | Bug detection in Java bytecode |
+| `PMD` | Identifies bad practices |
+
+`D. Web Development Static Analysis`
+| Tool | Language | Features |
+|------|----------|----------|
+| `ESLint` | JavaScript | Detects syntax and logic errors |
+| `Stylelint` | CSS | Enforces styling rules |
+| `HTMLHint` | HTML | Checks for HTML errors |
+
+---
+
+`4. Static Analysis in Linux OS`
+`Built-in Linux Tools for Code Analysis`
+| Tool | Language | Features |
+|------|----------|----------|
+| ``cppcheck`` | C/C++ | Static analysis for bugs |
+| ``splint`` | C | Secure coding checks |
+| ``shellcheck`` | Shell | Detects shell script issues |
+| ``gcc -Wall`` | C | Enables warnings for common errors |
+| ``valgrind`` | C/C++ | Memory leak detection |
+
+`Example: Running `cppcheck` in Linux`
+```sh
+cppcheck --enable=all --inconclusive myfile.cpp
+```
+
+`Example: Checking Shell Scripts with `shellcheck``
+```sh
+shellcheck myscript.sh
+```
+
+---
+
+`Conclusion`
+- `SonarQube` is a powerful tool for `continuous static analysis` in projects.
+- `Various static analysis tools exist` for different languages and use cases.
+- `Linux provides built-in tools` for analyzing scripts and compiled code.
+- `Integrating static analysis in CI/CD pipelines` improves code quality and security.
+
