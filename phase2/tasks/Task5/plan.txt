@@ -1,0 +1,51 @@
+Server                  buffer = 4 pages = 4 * 4096
+    communication: 
+        :request Create function 
+        FloorRepo.Create                char[256]   256
+        no of arguments   1             short         2
+        arg 1: argSize, arg            
+            floor size, floor object    8byte (long)   1000 byte(Floor)        
+    communication: 
+        :request ReadAll function 
+        FloorRepo.ReadAll                char[256]   256
+        no of arguments   0             short         2
+    communication: 
+        :request Delete function 
+        FloorRepo.Delete                char[256]   256
+        no of arguments   1             short         2
+        id size, id                     long 8 + id 4
+    communication: 
+        :request ReadById function 
+        FloorRepo.ReadById              char[256]   256
+        no of arguments   1             short         2
+        id size, id                     long 8 + id 4
+
+Client
+    communication: FloorRepo.Create 
+        :response Create function 
+        empty
+    communication: FloorRepo.ReadAll  
+        :response ReadAll function 
+        returns floors 
+        size of floors + arrayOfFloors          long + 1000*size
+    communication: FloorRepo.Delete  
+        :response Delete function
+        empty 
+    communication: FloorRepo.ReadById  
+        :response Delete function
+        returns floor
+        size of floor + floor 
+
+
+client : 
+    request :
+    name fn = FloorRepo.Create              256 char[256]    
+    no of args = N                            2 short 
+    1..N                        
+        arg1 size, arg                        8 byte + 1000  
+        arg2 size, arg                        8 byte + 4  
+
+server 
+    response: 
+    size+value 
+

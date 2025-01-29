@@ -69,7 +69,10 @@ TEST_F(UserManagerTest, DeleteUser) {
     EXPECT_EQ(manager->getUser("Alice"), nullptr);
 }
 
-TEST_F(UserManagerTest, UpdateUser) {
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++++++++++++++++++++++++++++(UserManagerTest, UpdateUser) {
     User updatedUser("Bob", 35, "bob.new@example.com");
     EXPECT_TRUE(manager->updateUser("Bob", updatedUser));
 
