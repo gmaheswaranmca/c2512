@@ -1,0 +1,54 @@
+LibDb
+    /Headers
+        department.h 
+        department_irepo.h
+        user.h 
+        user_irepo.h 
+                
+LibUi 
+    /Headers 
+        ui_settings.h 
+        ui_common.h 
+    /Sources 
+        ui_common.cpp 
+    Makefile 
+    libui.a 
+LibFileRepo
+    /Headers 
+        department_file_repo.h 
+        user_file_repo.h 
+    /Sources 
+        department_file_repo.cpp 
+        user_file_repo.cpp 
+    Makefile
+    libfilerepo.a  
+Client
+    /Headers
+        department_controller.h 
+        department_ui.h 
+        app_controller.h 
+        app_ui.h 
+        repo_provider.h 
+        security.h              sessionUser
+    /Sources
+        department_controller.cpp 
+        department_ui.cpp
+        app_controller.cpp 
+        app_ui.cpp 
+        repo_provider.cpp  
+        security.cpp
+    Makefile 
+    client.out 
+Test
+    TestUserModel
+    TestUserRepo  
+    TestDepartmentModel 
+    TestDepartmentRepo 
+    TestLoginPage
+    TestLoggedInPage   
+    TestDepartmentCreatePage
+    TestDepartmentEditPage 
+    TestDepartmentDeletePage
+    TestDepartmentSearchPage
+    TestMain  
+    

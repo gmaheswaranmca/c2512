@@ -1,0 +1,47 @@
+Client app for Department crud opeartions. 
+
+Client
+    /Headers
+        department.h 
+        department_irepo.h
+        user.h 
+        user_irepo.h 
+
+        department_file_repo.h 
+        user_file_repo.h 
+
+        ui_settings.h 
+        ui_common.h 
+
+        department_controller.h 
+        department_ui.h 
+        app_controller.h 
+        app_ui.h 
+        repo_provider.h 
+        security.h              sessionUser
+    /Sources 
+        ui_common.cpp
+
+        department_file_repo.cpp 
+        user_file_repo.cpp 
+
+        department_controller.cpp 
+        department_ui.cpp
+        app_controller.cpp 
+        app_ui.cpp 
+        repo_provider.cpp  
+        security.cpp                
+    Makefile 
+    client.out 
+Test
+    TestUserModel
+    TestUserRepo  
+    TestDepartmentModel 
+    TestDepartmentRepo 
+    TestLoginPage
+    TestLoggedInPage   
+    TestDepartmentCreatePage
+    TestDepartmentEditPage 
+    TestDepartmentDeletePage
+    TestDepartmentSearchPage
+    TestMain  

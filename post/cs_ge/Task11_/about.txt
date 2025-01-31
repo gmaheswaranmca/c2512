@@ -1,0 +1,48 @@
+CRUD Opeartions with Department {id, name, description} model.
+    Deparment is the department of doctor such as pediatrician, 
+    ortho, heart etc.
+    Hospital Management System: 
+        [Doctor, Department, Schedule,
+         Patient, User, Appoitnment, MedicalHistory, Payment] 
+
+::App:: 
+    1. Login 2. Create Super User 91. Exit  
+::Login::
+    username:                       <required> 
+    password:                       <required> 
+    Logged Successfully! OR Invalid Username / Password.
+::Department Management::
+    1. search / display all 2. create 3. edit 4. delete 91. logout 
+::Create Department::
+    name:                           <required, exist>
+    description:                    <>
+    Are you sure to delete(y/n)? y 
+    Department Created Successfully! 
+::Search Department::
+    Note: Search fields are name or description to search.
+    Note: Just hit <RETURN> key for display all departments.
+    search: 
+    Department      About 
+::Edit Department::
+    Note: Enter name to search department to edit.
+    search: 
+    Department Details:
+        name: 
+        description: 
+    Edit menu:
+        Note: to edit many fields enter sum of the fields as option. 
+        1- name 2- description 
+    old name: x
+    name: y
+    old descripton: x 
+    description: y 
+    Are you sure to update(y/n)? y
+    Department Successfully Updated!
+::Delete Department::
+    Note: Enter name to search department to delete.
+    search: 
+    Department Details:
+        name: 
+        description: 
+    Are you sure to delete(y/n)? y
+    Department Deleted Successfully.
